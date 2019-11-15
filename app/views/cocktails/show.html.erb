@@ -1,0 +1,23 @@
+<h1>Cocktail Details</h1>
+<h4><strong>Name: </strong><%= @cocktail.name %></h4>
+<h4><strong>Ingredient Dose</strong></h4>
+<ul>
+  <% @cocktail.doses.each do |d| %>
+  <li><strong>Ingredients:</strong>
+  <%= d.ingredient.name %></li>
+  <strong>Dose:</strong>
+  <%= d.description %>
+  </li>
+  <div>
+  <%= link_to "-Delete Dose", dose_path(d), method: :delete %>
+  <% end %>
+  </div>
+</ul>
+
+<div>
+  <%= link_to "+Add Doses", new_cocktail_dose_path(@cocktail) %>
+</div>
+
+<div class= "btn btn-info">
+<%= link_to "Back", cocktails_path %>
+</div>
